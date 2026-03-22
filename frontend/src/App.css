@@ -1,0 +1,168 @@
+/* --- PREMIUM INTELLIGENCE DESIGN SYSTEM --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Light Mode - Ultra Modern Slate & Sky */
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --text-main: #0f172a; /* Deep Navy for maximum readability */
+  --text-muted: #475569;
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #6366f1;
+  --accent-success: #10b981;
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --inner-glow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] {
+  /* Dark Mode - Deep Space & Cyan */
+  --bg-main: #020617; /* Truer Black-Blue */
+  --bg-surface: #0f172a;
+  --bg-glass: rgba(15, 23, 42, 0.65);
+  --text-main: #f8fafc; /* Crisp Off-White */
+  --text-muted: #94a3b8;
+  --accent-primary: #38bdf8;
+  --accent-secondary: #818cf8;
+  --accent-success: #34d399;
+  --glass-border: rgba(248, 250, 252, 0.1);
+  --nav-bg: rgba(2, 6, 23, 0.85);
+  --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --inner-glow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* --- GLOBAL VISIBILITY FIX --- */
+/* This forces every element to use our theme text color and prevents invisible text */
+* {
+  color: inherit; 
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main) !important; /* Force primary text color */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Explicit overrides for Bootstrap/Common elements that ignore body color */
+h1, h2, h3, h4, h5, h6, p, span, label, strong, em, div {
+  color: var(--text-main);
+}
+
+/* Form Visibility Fixes */
+input, textarea, select {
+  color: var(--text-main) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+/* --- THE UI ENGINE --- */
+.glass-panel {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--card-shadow), var(--inner-glow) !important;
+  border-radius: 24px;
+  color: var(--text-main) !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.text-contrast {
+  color: var(--text-main) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* --- NAVIGATION REINVENTED --- */
+.navbar {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1.2rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-primary) !important;
+}
+
+/* --- HIGH-END BUTTONS --- */
+.btn-modern {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+  color: white !important; /* Button text always white for visibility */
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 12px 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px;
+  box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.btn-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.4);
+}
+
+/* --- BENTO GRID CARDS --- */
+.bento-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  color: var(--text-main);
+}
+
+.bento-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--card-shadow);
+}
+
+/* --- ANIMATIONS --- */
+.reveal {
+  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE POLISH --- */
+@media (max-width: 768px) {
+  .navbar { padding: 1rem; }
+  .glass-panel { border-radius: 16px; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { 
+  background: var(--accent-primary); 
+  border-radius: 10px; 
+  border: 3px solid var(--bg-main);
+}

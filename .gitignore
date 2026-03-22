@@ -1,0 +1,16 @@
+# Python virtual environment
+venv/
+ENV/
+.venv/
+__pycache__/
+*.py[cod]
+
+# React dependencies
+node_modules/
+
+# Environment variables (Secrets)
+.env
+
+# Build files
+build/
+dist/
