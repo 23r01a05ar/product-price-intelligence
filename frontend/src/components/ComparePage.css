@@ -1,0 +1,165 @@
+/* --- PREMIUM INTELLIGENCE DASHBOARD --- */
+
+.main-intelligence-card {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 30px !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+.dashboard-header {
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* --- DUAL SEARCH & UPLOAD UI --- */
+
+.search-box-premium {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--bg-glass);
+}
+
+.search-box-premium:focus-within {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+    transform: translateY(-2px);
+}
+
+.upload-box-premium {
+    background: rgba(14, 165, 233, 0.05);
+    border: 2px dashed rgba(14, 165, 233, 0.3) !important;
+    transition: all 0.3s ease;
+}
+
+.upload-box-premium:hover {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--accent-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* --- ANALYTICS BENTO GRID --- */
+
+.bento-card {
+    background: var(--bg-glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+}
+
+.stat-pill {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-pill:hover {
+    transform: translateX(8px);
+    background: var(--bg-surface) !important;
+}
+
+/* --- RESULT CARDS --- */
+
+.deal-card-premium {
+    background: var(--bg-glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deal-card-premium:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary) !important;
+    box-shadow: var(--card-shadow);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* --- ICON BUTTONS --- */
+
+.btn-icon-round {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--text-main);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+}
+
+.btn-icon-round:hover:not(:disabled) {
+    background: var(--accent-primary);
+    color: white;
+    transform: scale(1.15) rotate(5deg);
+}
+
+.btn-icon-round:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* --- GOOGLE STYLE PAGINATION --- */
+
+.pagination-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-110 {
+    transform: scale(1.1);
+}
+
+/* --- TEXT VISIBILITY FIXES --- */
+
+.text-contrast {
+    color: var(--text-main) !important;
+}
+
+[data-theme='dark'] .bg-white.p-2 {
+    background: rgba(255, 255, 255, 0.9) !important; /* Keep product images clear */
+}
+
+/* --- ANIMATIONS --- */
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
+
+.reveal {
+    animation: revealIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Spinner adjustment */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25em;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .deal-card-premium {
+        padding: 1.5rem !important;
+    }
+    .dashboard-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}

@@ -1,0 +1,134 @@
+/* --- PREMIUM HOME UI ENGINE --- */
+
+.hero-section {
+    position: relative;
+    padding: 120px 0 60px;
+    overflow: hidden;
+}
+
+/* Background Spotlight for Modern Feel */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.display-3 {
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+/* Floating Animation for Hero Images */
+.floating-animation {
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* --- BENTO GRID CARDS --- */
+
+.bento-card {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 28px;
+    padding: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bento-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-primary) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+.hover-zoom {
+    transition: transform 0.5s ease;
+}
+
+.bento-card:hover .hover-zoom {
+    transform: scale(1.1);
+}
+
+/* --- LIVE RANKING STYLES --- */
+
+.bg-glass-surface {
+    background: rgba(14, 165, 233, 0.03);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+}
+
+.extra-small {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Spotlight Effect for CTA */
+.glow-spotlight {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Text Visibility Corrections */
+.text-contrast {
+    color: var(--text-main) !important;
+}
+
+/* Category Icons box */
+.bg-primary.bg-opacity-10 {
+    width: fit-content;
+}
+
+/* --- RESPONSIVE POLISH --- */
+
+@media (max-width: 991px) {
+    .display-3 {
+        font-size: 2.8rem;
+    }
+    .hero-section {
+        padding: 60px 0;
+    }
+}
+
+/* Reveal Entrance Animation */
+.reveal {
+    animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .bg-glass-surface {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .hero-section::before {
+    opacity: 0.25;
+}

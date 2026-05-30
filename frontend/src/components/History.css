@@ -1,0 +1,135 @@
+/* --- INTELLIGENCE LOGS (HISTORY) UI --- */
+
+.history-list {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Glassmorphic Log Card */
+.history-list .glass-panel {
+    background: var(--bg-glass) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 20px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: revealIn 0.5s ease-out both;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover State - High Performance Look */
+.history-list .glass-panel:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: var(--accent-primary) !important;
+    background: var(--bg-surface) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+/* Accent Glow for active logs */
+.history-list .glass-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.history-list .glass-panel:hover::before {
+    opacity: 1;
+}
+
+/* Icon Box for Logs */
+.bg-primary.bg-opacity-10 {
+    transition: all 0.3s ease;
+}
+
+.history-list .glass-panel:hover .bg-primary.bg-opacity-10 {
+    transform: rotate(-12deg) scale(1.1);
+    background: var(--accent-primary) !important;
+    color: white !important;
+}
+
+/* Text Visibility Classes */
+.text-contrast {
+    color: var(--text-main) !important;
+}
+
+.extra-small {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Re-run Analysis Badge */
+.badge-best-value {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-success);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.history-list .glass-panel:hover .badge-best-value {
+    background: var(--accent-success) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Spinning Animation for Refresh Icon */
+.spin {
+    animation: spinRotate 1s linear infinite;
+}
+
+@keyframes spinRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Reveal Entrance Animation */
+@keyframes revealIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered Animations for List items */
+.history-list .glass-panel:nth-child(1) { animation-delay: 0.1s; }
+.history-list .glass-panel:nth-child(2) { animation-delay: 0.15s; }
+.history-list .glass-panel:nth-child(3) { animation-delay: 0.2s; }
+.history-list .glass-panel:nth-child(4) { animation-delay: 0.25s; }
+.history-list .glass-panel:nth-child(n+5) { animation-delay: 0.3s; }
+
+/* Pulse for Loading State */
+.animate-pulse {
+    animation: logPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes logPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .6; }
+}
+
+/* Mobile Polish */
+@media (max-width: 768px) {
+    .history-list .glass-panel {
+        text-align: center;
+        padding: 20px !important;
+    }
+    
+    .history-list .d-flex.align-items-center {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .history-list .me-3 {
+        margin-right: 0 !important;
+    }
+}
